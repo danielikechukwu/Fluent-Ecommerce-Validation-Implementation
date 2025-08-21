@@ -1,0 +1,6 @@
+@FluentValidationEcommerceImplementation_HostAddress = http://localhost:5219
+
+GET {{FluentValidationEcommerceImplementation_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
