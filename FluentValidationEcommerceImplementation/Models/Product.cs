@@ -6,7 +6,9 @@ namespace FluentValidationEcommerceImplementation.Models
     public class Product
     {
         public int ProductId { get; set; } // Primary Key
+
         public string Name { get; set; } // Unique product name
+
         public string SKU { get; set; }  // Unique Stock Keeping Unit
 
         [Column(TypeName = "decimal(10,2)")]
