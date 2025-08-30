@@ -14,12 +14,13 @@ namespace FluentValidationEcommerceImplementation.Controllers
     {
         private readonly ILogger<ProductsController> _logger;
         private readonly ECommerceDbContext _context;
-        // private readonly IValidator<ProductDTO> _validator;
+        private readonly IValidator<ProductDTO> _validator;
 
-        public ProductsController(ILogger<ProductsController> logger, ECommerceDbContext context)
+        public ProductsController(ILogger<ProductsController> logger, ECommerceDbContext context, IValidator<ProductDTO> validator)
         {
             _logger = logger;
             _context = context;
+            _validator = validator;
         }
 
         // POST: api/products
@@ -29,10 +30,10 @@ namespace FluentValidationEcommerceImplementation.Controllers
         {
 
             // Instantiate the validator with the DbContext for performing async validations.
-            var validator = new ProductDTOValidator(_context);
+            // var validator = new ProductDTOValidator(_context);
 
             // Validate the request using the injected validator
-            var validationResult = await validator.ValidateAsync(productDTO);
+            var validationResult = await _validator.ValidateAsync(productDTO);
 
             // If validation fails, return a 400 Bad Request with error details.
             if(!validationResult.IsValid)

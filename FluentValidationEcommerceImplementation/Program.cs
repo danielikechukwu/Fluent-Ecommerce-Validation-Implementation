@@ -20,10 +20,11 @@ builder.Services.AddDbContext<ECommerceDbContext>(options =>
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen();
 
 // Register Each Validator Manually
-// builder.Services.AddScoped<IValidator<ProductDTO>, ProductDTOValidator>();
+builder.Services.AddScoped<IValidator<ProductDTO>, ProductDTOValidator>();
 
 var app = builder.Build();
 
