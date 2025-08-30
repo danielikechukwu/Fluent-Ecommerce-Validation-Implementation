@@ -14,6 +14,7 @@ namespace FluentValidationEcommerceImplementation.Controllers
     {
         private readonly ILogger<ProductsController> _logger;
         private readonly ECommerceDbContext _context;
+        // private readonly IValidator<ProductDTO> _validator;
 
         public ProductsController(ILogger<ProductsController> logger, ECommerceDbContext context)
         {
